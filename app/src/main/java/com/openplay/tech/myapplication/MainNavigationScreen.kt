@@ -3,6 +3,8 @@ package com.openplay.tech.myapplication
 import android.annotation.SuppressLint
 import android.content.Context
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -63,12 +65,11 @@ fun MainNavigationScreen(navController: NavHostController) {
     }
 
     Scaffold(
-        modifier = Modifier.fillMaxWidth(),
-        topBar = {
-            CustomToolBar()
-        },
+        modifier = Modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.onBackground,
         bottomBar = {
-            BottomNavigationBar(
+            if (isBottomBarVisible)
+                BottomNavigationBar(
                 navItems = navBottomItems,
                 selectedItem = selectedItem,
                 onClickItem = { index ->

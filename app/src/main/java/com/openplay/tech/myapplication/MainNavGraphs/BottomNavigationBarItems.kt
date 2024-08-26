@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.openplay.tech.myapplication.R
+import com.openplay.tech.myapplication.ui.theme.Pink80
 import com.openplay.tech.myapplication.ui.theme.Purple40
 import com.openplay.tech.myapplication.ui.theme.PurpleGrey40
 
@@ -36,7 +37,7 @@ fun BottomNavigationBar(
     onClickItem: (Int) -> Unit
 ) {
     NavigationBar(
-        containerColor = MaterialTheme.colorScheme.background,
+        containerColor = MaterialTheme.colorScheme.onBackground,
         modifier = Modifier
             .clip(RoundedCornerShape(20)),
         tonalElevation = 30.dp,
@@ -100,7 +101,7 @@ fun BottomNavigationBar(
                 colors = NavigationBarItemColors(
                     unselectedIconColor = PurpleGrey40,
                     unselectedTextColor = PurpleGrey40,
-                    selectedIconColor = Purple40,
+                    selectedIconColor = Pink80,
                     selectedTextColor = Purple40,
                     selectedIndicatorColor = MaterialTheme.colorScheme.onPrimary,
                     disabledIconColor = PurpleGrey40,

@@ -3,6 +3,7 @@ package com.openplay.tech.myapplication.commonutils
 import android.content.Context
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -100,6 +101,22 @@ fun CustomProgressBarForAsyncImage() {
         CircularProgressIndicator()
     }
 
+}
+
+@Composable
+fun RectangularImage(imageUrl: String, context: Context) {
+    SubcomposeAsyncImage(
+        modifier = Modifier
+            .fillMaxSize()
+            .height(300.dp)
+            .clip(RoundedCornerShape(10.dp)),
+
+        model = imageUrl,
+        contentDescription = "image",
+        loading = { CustomProgressBarForAsyncImage() },
+        error = { R.drawable.unselectedhome },
+        contentScale = ContentScale.FillBounds
+    )
 }
 
 @Composable

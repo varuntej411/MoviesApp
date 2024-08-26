@@ -111,13 +111,13 @@ dependencies {
 
     //retrofit
     implementation(libs.retrofit)
-    implementation(libs.google.gson)
+   // implementation(libs.google.gson)
     implementation(libs.converter.gson)
-    implementation(libs.converter.jackson)
-    implementation(libs.converter.moshi)
-    implementation(libs.converter.scalars)
-    implementation(libs.retrofit.converters)
-    implementation(libs.retrofit.adapters)
+//    implementation(libs.converter.jackson)
+//    implementation(libs.converter.moshi)
+//    implementation(libs.converter.scalars)
+//    implementation(libs.retrofit.converters)
+//    implementation(libs.retrofit.adapters)
     //data store preferences
     implementation(libs.androidx.datastore)
     // paging

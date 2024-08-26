@@ -1,6 +1,7 @@
 package com.openplay.tech.myapplication.di
 
 import com.openplay.tech.myapplication.commonutils.Constants
+import com.openplay.tech.myapplication.data.local.MoviesDAO
 import com.openplay.tech.myapplication.data.remote.MovieApiService
 import com.openplay.tech.myapplication.data.repositoryimpl.MoviesRepositoryImpl
 import com.openplay.tech.myapplication.domain.repository.MoviesRepository
@@ -8,9 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -38,29 +37,16 @@ object AppNetworkModule {
             .connectTimeout(10, TimeUnit.MINUTES)
             .readTimeout(100, TimeUnit.SECONDS)
             .writeTimeout(100, TimeUnit.SECONDS)
-            .addInterceptor(
-                Interceptor { chain ->
-                    val request: Request = chain.request().newBuilder()
-                        .addHeader("accept", "application/json")
-                        .addHeader(
-                            "Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9." +
-                                    "eyJhdWQiOiI1NjBlZjU5MjZkNjY2Yzk3OTliZWVmOWQyODE2NDNjMyIsIm5iZiI6MTc" +
-                                    "yNDQ0ODU4My4zODk0ODQsInN1YiI6IjY2YzhmM2E1NGZhODI1MTAzZGIzMDY1YSIsInNjb3Blcy" +
-                                    "I6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nOs" +
-                                    "-H5Zg7w6bSw7gWkzWKsM-5CIsxmXEODzPX72sBCY"
-                        ).build()
-                    chain.proceed(request)
-                }
-            ).addInterceptor(loggingInterceptor).build()
+            .addInterceptor(loggingInterceptor).build()
     }
 
     @Provides
     @Singleton
     fun provideRetrofitClient(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Constants.BASE_URL)
             .build()
     }
 
@@ -72,8 +58,8 @@ object AppNetworkModule {
 
     @Provides
     @Singleton
-    fun provideMovieRepository(movieApiService: MovieApiService): MoviesRepository {
-        return MoviesRepositoryImpl(movieApiService)
+    fun provideMovieRepository(movieApiService: MovieApiService, moviesDao: MoviesDAO): MoviesRepository {
+        return MoviesRepositoryImpl(movieApiService, moviesDao)
     }
 
 }

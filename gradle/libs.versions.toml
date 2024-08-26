@@ -86,12 +86,12 @@ androidx-glider = { group = "com.github.bumptech.glide", name = "glide", version
 androidx-glider-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideCompose" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersions" }
 converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersions" }
-google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "googleGson" }
-converter-jackson = { group = "com.squareup.retrofit2", name = "converter-jackson", version.ref = "retrofitVersions" }
-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofitVersions" }
-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofitVersions" }
-retrofit-converters = { group = "com.squareup.retrofit2", name = "retrofit-converters", version.ref = "retrofitConverters_Adapters" }
-retrofit-adapters = { group = "com.squareup.retrofit2", name = "retrofit-adapters", version.ref = "retrofitConverters_Adapters" }
+#google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "googleGson" }
+#converter-jackson = { group = "com.squareup.retrofit2", name = "converter-jackson", version.ref = "retrofitVersions" }
+#converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofitVersions" }
+#converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofitVersions" }
+#retrofit-converters = { group = "com.squareup.retrofit2", name = "retrofit-converters", version.ref = "retrofitConverters_Adapters" }
+#retrofit-adapters = { group = "com.squareup.retrofit2", name = "retrofit-adapters", version.ref = "retrofitConverters_Adapters" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp_loggingInterceptor" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp_loggingInterceptor" }
 okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp_loggingInterceptor" }
